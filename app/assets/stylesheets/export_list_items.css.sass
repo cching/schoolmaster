@@ -1,0 +1,68 @@
+#meta_container #container
+	.export_list_items.form, .export_list_items.select
+		.title
+			h1, h2
+				left: $spacing
+
+.table a
+	span.export_list_button
+		width: 40px
+		background-image: url(image-path("icons.png"))
+		background-position: 10px -2028px
+		background-repeat: no-repeat
+		padding: 0
+		position: relative
+		
+		img
+			width: 40px
+			height: 35px
+			position: absolute
+			top: 0
+			left: 0
+	
+		&:hover
+			background-position: 10px -2058px
+		
+	&:active, &.selected
+		span.select
+			background-position: 10px -2088px
+
+.table div
+	span.export_all_button
+		cursor: pointer
+
+.export_list_items.select
+	h6
+		padding: 0 $spacing
+		background: $gray-active
+		font-size: 12px
+		font-weight: bold
+		color: #FFF
+	
+	.scroller a
+		+traverse_link
+
+.export_list_items .waiting_link, .export_list_items .download_link
+	height: 35px
+	width: 290px
+	display: block
+	padding: 0 10px
+	margin: $spacing 0
+	background: $blue-medium
+	+border-radius($radius)
+	font-weight: bold
+	color: #FFF
+	line-height: 35px
+	text-decoration: none
+	text-align: center
+
+.export_list_items .waiting_link
+	cursor: default
+
+.export_list_items .download_link
+	
+	&:hover
+		background-color: $blue-hover
+	
+	&:active
+		background-color: $blue-active

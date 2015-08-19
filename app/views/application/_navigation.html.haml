@@ -1,0 +1,50 @@
+%ul#navigation.scroller
+
+	%li.group People and Groups
+
+	- if permitted_to? :index, :users
+		%li.users= link_to 'Users', users_path
+
+	- if permitted_to? :index, :districts
+		%li.districts= link_to 'Districts', districts_path
+	
+	- if permitted_to? :index, :schools
+		%li.schools= link_to 'Schools', schools_path
+
+	%li.periods= link_to 'Classes', periods_path
+
+	%li.students= link_to 'Students', students_path
+	
+	- if permitted_to? :index, :test_scores
+		%li.test_scores= link_to 'Test Scores', test_scores_path
+
+	%li.group Tools
+	
+	%li.export
+		= link_to export_list_items_path do
+			Export List
+			%span= current_user.export_list_students.count
+	
+	- if permitted_to? :index, :bus_routes
+		%li.bus_routes= link_to 'Bus Routes', bus_routes_path
+	
+	- if permitted_to? :index, :bus_stops
+		%li.bus_stops= link_to 'Bus Stops', bus_stops_path
+	
+	- if permitted_to? :index, :templates
+		%li.templates= link_to 'Templates', templates_path
+
+	- if permitted_to? :index, :fonts
+		%li.fonts= link_to 'Fonts', fonts_path
+	
+	- if current_role == :developer
+		%li.account= link_to 'Settings', settings_path
+	
+	- if current_role == :developer
+		%li.logins= link_to 'Logins', logins_path
+	
+	%li.logout= link_to 'Logout', logout_path
+	
+	%li.footer
+		&copy; 2012 Shoob Photography<br />
+		Developed by #{link_to 'Spencer Schack', 'http://spencerschack.com/'}

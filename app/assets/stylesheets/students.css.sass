@@ -1,0 +1,198 @@
+#container
+	.students.wrapper.index, .export_list_items.wrapper.index, .test_scores.wrapper.index
+		.table
+			span.image
+				width: 28px
+				padding: 0
+			
+				img
+					width: 28px
+					height: 35px
+					vertical-align: bottom
+
+	.page.fullscreen
+		.students.wrapper.test_scores
+			width: auto
+
+	.students.wrapper.test_scores
+		width: 1000px
+	
+		div.scroller
+	
+			div.table
+				margin: 20px 0
+	
+			div.left_col
+				width: 350px
+				position: absolute
+				left: 0
+			
+				h2
+					margin-left: $spacing
+					float: left
+			
+				div.fields
+					width: 350px - $spacing * 2
+					padding: $spacing
+				
+					p
+						margin: 0 0 10px 0
+
+					b
+						display: inline
+						margin-right: 10px
+					
+					.student_data
+						width: 130px
+						float: left
+
+					img
+						width: 160px
+						height: 200px
+						margin-right: $spacing
+						float: left
+		
+				.notes
+					width: 100%
+					float: left
+					
+					.holder
+						margin-left: $spacing
+				
+					label
+						border-bottom: 5px $blue-light solid
+				
+					textarea
+						height: 140px
+						+border-top-radius(0)
+		
+					p
+						width: 100%
+						margin: 10px $spacing $spacing $spacing
+						float: left
+	
+			div.right_col
+				position: absolute
+				left: 365px
+				right: 0
+			
+				.interventions
+					margin-right: $spacing
+					
+					.stop, .start
+						width: 80px
+					
+					.completed
+						text-align: center
+						
+						input
+							width: auto
+				
+					h2
+						border-bottom: 5px $blue-light solid
+			
+					.right, .left
+						width: 50%
+						float: left
+					
+					span
+						padding: 0
+						vertical-align: top
+						background-color: #FFF
+			
+						textarea
+							height: 70px
+							float: left
+							padding: 0 5px
+							+border-radius(0)
+							resize: vertical
+	
+		div.relations
+			width: 100%
+			float: left
+			clear: left
+			margin-left: 10px
+
+		div.scroller h2
+			height: 35px
+			margin: 10px 0 0 0
+			font-size: 16px
+			font-weight: bold
+			line-height: 35px
+
+		table
+	
+			&.tests
+				min-width: 100%
+				margin-top: $spacing
+				text-align: center
+				
+				.small
+					text-align: center
+				
+				a
+					text-decoration: none
+					
+					&:hover
+						text-decoration: underline
+			
+				td
+					vertical-align: middle
+		
+				tr
+					height: 30px
+					
+					th, td
+						min-width: 50px
+						padding: 0 10px
+					
+					th.test_name
+						background-color: #FFF
+						text-align: right
+			
+					th
+						background-color: $gray-stripe
+						font-weight: bold
+						
+						a
+							color: #000
+				
+					td
+						top: 0
+						background-color: #FFF
+						color: #000
+						
+						a
+							color: #000
+					
+						&.adv a, &.prof a, &.basic a, &.bbasic a, &.fbb a
+							color: #FFF
+					
+						&.adv
+							background-color: $advanced
+					
+						&.prof
+							background-color: $proficient
+					
+						&.basic
+							background-color: $basic
+					
+						&.bbasic
+							background-color: $below-basic
+					
+						&.fbb
+							background-color: $far-below-basic
+		
+		.holder
+			display: none
+		
+		.destroy_intervention_link, .destroy_student_note_link
+			color: $red
+			text-decoration: underline
+			cursor: pointer
+		
+			&:hover
+				color: $red-hover
+		
+			&:active
+				color: $red-dark

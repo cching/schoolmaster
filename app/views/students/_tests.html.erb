@@ -1,0 +1,36 @@
+<table class="tests">
+  <% group_tests(@student.test_scores).each do |(test_name, scores)| %>
+    <tr>
+      <th class="test_name"><%= test_name.titleize %></span>
+      <% scores.each do |key, value| %>
+        <th class="small link">
+          <a href="/test_scores/<%= @student.id %>/<%= value[:id] %>" class="edit">
+            <%= key.html_safe %>
+          </a>
+        </th>
+      <% end %>
+    </tr>
+    <tr>
+      <td></td>
+      <% scores.each_value do |value| %>
+        <% if value[:score].blank? %>
+          <td><%= none %></td>
+        <% else %>
+          <td class="<%= value[:level] %> small link">
+            <a href="/test_scores/<%= @student.id %>/<%= value[:id] %>" class="edit">
+              <% if value[:score].present? %>
+                <%= value[:score].titleize %>
+              <% else %>
+                <%= none %>
+              <% end %>
+              <% if value[:level].present? %>
+                <br />
+                <em><%= value[:level].titleize %></em>
+              <% end %>
+            </a>
+          </td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

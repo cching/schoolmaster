@@ -1,0 +1,5 @@
+= link_to resource_with_parents(row ||= resource), data: { id: row.id } do
+	%span.spacer
+	- fields(:index).each do |field|
+		%span= cell_content row, field
+	%span.spacer

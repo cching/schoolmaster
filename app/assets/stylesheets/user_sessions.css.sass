@@ -1,0 +1,54 @@
+#meta_container #container
+	div.user_sessions.new, div.user_sessions.create
+		top: -75px
+		width: 300px
+		
+		form.scroller
+			overflow-x: hidden
+	
+		li.radio
+			height: 10px
+	
+			input
+				height: 25px
+				width: 15px
+				margin: 0 10px 0 0
+				padding: 0
+				border: 0
+				+box-sizing(content-box)
+				display: inline-block
+				float: left
+		
+			label
+				line-height: 25px
+		
+		li.password
+			margin-left: 45px
+		
+		li.guest_hint
+			padding-left: 25px
+			font-size: 12px
+			line-height: 14px
+	
+		.exit_button
+			position: relative
+		
+			a
+				height: 35px
+				position: absolute
+				left: $spacing
+				right: $spacing
+				display: block
+				background: $blue
+				+border-radius($radius)
+				color: #FFF
+				text-decoration: none
+				font-weight: bold
+				text-align: center
+				line-height: 35px
+		
+			&:hover
+				background-color: $blue-hover
+		
+			&:active
+				background-color: $blue-active

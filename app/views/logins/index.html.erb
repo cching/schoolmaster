@@ -1,0 +1,24 @@
+<div class="title">
+  <h2>All</h2>
+  <h1>Logins</h1>
+  <%= link_for :back, Login %>
+</div>
+  
+<div class="scroller">
+  <div class="table" data-limit="<%= offset_amount.to_i %>" data-offset="<%= params[:offset].to_i + offset_amount.to_i %>">
+    <div>
+      <span class="spacer"></span>
+      <span <%= order_by_for(:email) %>>Email</span>
+      <span>Time</span>
+      <span class="spacer"></span>
+    </div>
+    <% collection.each do |row| %>
+      <a>
+        <span class="spacer"></span>
+        <span><%= row.email %></span>
+        <span><%= row.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%r %a %b %e, %Y') %></span>
+        <span class="spacer"></span>
+      </a>
+    <% end %>
+  </div>
+</div>

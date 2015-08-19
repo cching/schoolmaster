@@ -1,0 +1,132 @@
+@import select
+@import key_value_pair
+
+ul.errors li
+	height: auto
+	margin: $spacing
+	
+	li
+		margin-top: 0
+		margin-bottom: 0
+
+form
+
+	label, legend
+		padding-bottom: 6px
+		display: block
+		font-size: 14px
+		font-weight: bold
+		line-height: 14px
+		
+		abbr
+			font-weight: normal
+			color: $gray-text
+	
+	legend
+		margin: 0 $spacing
+		padding: $spacing 0 0 0
+	
+	.relations li
+		margin-left: $spacing/2
+	
+	.fields li
+		margin-right: $spacing/2
+	
+	li
+		position: relative
+		margin: $spacing
+		
+		fieldset
+			margin-top: 10px
+			
+			legend
+				margin: 0
+				padding: 0
+			
+			.choice input
+				width: auto
+		
+		.inline-hints, .inline-errors
+			margin: 0
+		
+		&.error
+			input, select
+				border-color: $red
+		
+		&.choice
+			input
+				border: 0
+		
+		&.boolean
+			input
+				width: auto
+				height: auto
+				float: left
+				margin-right: 10px
+		
+		&.file input
+			height: auto
+			padding: 0
+			border: 0
+			line-height: auto
+		
+		&.radio
+			label
+				height: auto
+			
+			li
+				position: static
+				margin: 10px $spacing 0 0
+				float: left
+				
+				label
+					font-weight: normal
+				
+				input
+					height: auto
+					position: static
+					margin-right: 5px
+	
+	.actions
+		clear: both
+	
+		li
+			height: 35px
+			margin-bottom: 0
+			padding-bottom: $spacing
+	
+		input
+			height: 35px
+			background: $blue
+			border: 0
+			font-weight: bold
+			color: #FFF
+			cursor: pointer
+			
+			&:hover
+				background: $blue-hover
+			
+			&:active
+				background: $blue-active
+		
+	input, select, textarea
+		width: 100%
+		height: 35px
+		+box-sizing(border-box)
+		padding: 0 10px
+		background: #FFF
+		border: 1px $gray-text solid
+		+border-radius($radius)
+		line-height: 33px
+		font-size: 14px
+		font-family: inherit
+		outline: none
+	
+	textarea
+		height: 105px
+		padding: 7px 10px
+		line-height: 20px
+		resize: vertical
+		
+	select
+		height: 35px

@@ -1,0 +1,7 @@
+.title
+	%h2 New
+	%h1= singular_title
+	= link_for :cancel, resource
+	= link_for :create, resource
+	= link_for :back, resource
+.scroller= render 'form'

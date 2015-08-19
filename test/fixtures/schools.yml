@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: School One
+  district_id: 1
+
+two:
+  name: School Two
+  district_id: 1

@@ -1,0 +1,100 @@
+form
+	li
+	
+		&.token, &.search_select
+			fieldset.choices
+					
+				ol.choices-group
+					max-height: 200px
+					padding: 5px 0 0 5px
+					border: 1px $gray-text solid
+					+border-radius($radius)
+					word-spacing: 0
+					letter-spacing: 0
+					font-size: 0
+					cursor: text
+					overflow: auto
+					
+					&.searching
+						+border-bottom-radius(0)
+					
+					li
+						margin: 0 5px 5px 0
+						+inline-block
+						word-spacing: auto
+						letter-spacing: auto
+						font-size: 14px
+						
+						&.search_field
+							margin: 0 2px
+						
+							input
+								width: 25px
+								height: 23px
+								position: static
+								margin-bottom: 5px
+								padding: 0 0 0 3px
+								border: 0
+						
+						&.choice
+							height: 11px
+							padding: 5px
+							background: $gray-stripe
+							border: 1px $gray-active solid
+							+border-radius($radius)
+						
+							label
+								height: 11px
+								font-weight: normal
+								line-height: 11px
+					
+							input
+								display: none
+							
+							i
+								width: 10px
+								height: 10px
+								display: block
+								float: right
+								margin-left: 5px
+								background: url(image-path("icons.png")) no-repeat -1px -630px
+								cursor: pointer
+								
+								&:hover
+									background-position: -1px -660px
+								
+								&:active
+									background-position: -1px -690px
+
+				ol.results
+					max-height: 200px
+					position: absolute
+					left: 0
+					right: 0
+					display: none
+					margin-top: -1px
+					border-bottom: $spacing transparent solid
+					background: #FFF
+					border: 1px $gray-text solid
+					+border-bottom-radius(3px)
+					z-index: 1
+					overflow: auto
+
+					li
+						margin: 0
+						padding: 10px 11px
+						line-height: 13px
+					
+						&.result
+							cursor: pointer
+						
+							&.hover
+								background: $gray-hover
+						
+							&.active, &.hover.active
+								background: $gray-active
+								color: #FFF
+					
+						&.none
+							font-style: italic
+							color: $gray-text

@@ -1,0 +1,254 @@
+.fullscreen #header.stuck
+	display: none
+
+#header
+
+	&.stuck
+		min-height: 300px
+		position: absolute
+		top: 0
+		bottom: 0
+		left: -200px
+
+	h1
+		position: relative
+		background: #FFF
+		text-indent: -9999px
+		z-index: 10
+		
+		a
+			height: 75px
+			display: block
+			background: $blue url(image-path("logo.gif")) no-repeat center center
+	
+	ul#navigation.scroller
+		overflow-x: hidden
+	
+		li:nth-child(even)
+			a
+				background-color: $gray-stripe
+	
+		li
+			a
+				width: 200px - (2 * $spacing + 20px)
+				height: 35px
+				padding: 0 $spacing 0 ($spacing + 20px)
+				display: block
+				background: url(image-path("icons.png")) no-repeat
+				font-weight: bold
+				text-decoration: none
+				color: #000
+				line-height: 35px
+			
+				&:hover
+					background-color: $gray-hover
+			
+				&:active
+					background-color: $gray-active
+					color: #FFF
+				
+				&.selected
+					background-color: $blue
+					color: #FFF
+			
+			&.group
+				padding: 0 $spacing
+				background: $gray-active
+				color: #FFF
+				font-size: 12px
+				font-weight: bold
+			
+			&.users a, &.logins a
+				background-position: $spacing 11px
+
+				&:hover
+					background-position: $spacing -19px
+
+				&:active, &.selected
+					background-position: $spacing -49px
+
+			&.districts a
+				background-position: $spacing -79px
+
+				&:hover
+					background-position: $spacing -109px
+
+				&:active, &.selected
+					background-position: $spacing -139px
+
+			&.schools a
+				background-position: $spacing -169px
+
+				&:hover
+					background-position: $spacing -199px
+
+				&:active, &.selected
+					background-position: $spacing -229px
+
+			&.periods a
+				background-position: $spacing -259px
+
+				&:hover
+					background-position: $spacing -289px
+
+				&:active, &.selected
+					background-position: $spacing -319px
+
+			&.students a
+				background-position: $spacing -349px
+
+				&:hover
+					background-position: $spacing -379px
+
+				&:active, &.selected
+					background-position: $spacing -409px
+			
+			&.test_scores a
+				background-position: $spacing -2148px
+				
+				&:hover
+					background-position: $spacing -2178px
+				
+				&:active, &.selected
+					background-position: $spacing -2208px
+			
+			&.export a
+				background-position: $spacing -2028px
+				
+				&:hover
+					background-position: $spacing -2058px
+					
+					span
+						background: $gray-text
+				
+				&:active, &.selected
+					background-position: $spacing -2088px
+					
+					span
+						background: #FFF
+						color: $gray-active
+				
+				&.selected span
+					color: $blue
+				
+				span
+					height: 15px
+					padding: 0 5px
+					margin: 10px 0 0 0
+					float: right
+					background: $gray-active
+					+border-radius($radius)
+					font-weight: bold
+					font-size: 12px
+					line-height: 15px
+					color: #FFF
+			
+			&.test_groups a
+				background-position: $spacing -1609px
+
+				&:hover
+					background-position: $spacing -1639px
+
+				&:active, &.selected
+					background-position: $spacing -1669px
+	
+			&.test_models a
+				background-position: $spacing -1519px
+
+				&:hover
+					background-position: $spacing -1549px
+
+				&:active, &.selected
+					background-position: $spacing -1579px
+			
+			&.bus_routes a
+				background-position: $spacing -1309px
+
+				&:hover
+					background-position: $spacing -1339px
+
+				&:active, &.selected
+					background-position: $spacing -1369px
+
+			&.bus_stops a
+				background-position: $spacing -1399px
+
+				&:hover
+					background-position: $spacing -1429px
+
+				&:active, &.selected
+					background-position: $spacing -1459px
+
+			&.templates a
+				background-position: $spacing -949px
+
+				&:hover
+					background-position: $spacing -979px
+
+				&:active, &.selected
+					background-position: $spacing -1009px
+			
+			&.fonts a
+				background-position: $spacing -1039px
+
+				&:hover
+					background-position: $spacing -1069px
+
+				&:active, &.selected
+					background-position: $spacing -1099px
+				
+			&.print a
+				background-position: $spacing -1129px
+
+				&:hover
+					background-position: $spacing -1159px
+
+				&:active, &.selected
+					background-position: $spacing -1189px
+
+			&.account a
+				background-position: $spacing -439px
+
+				&:hover
+					background-position: $spacing -469px
+
+				&:active, &.selected
+					background-position: $spacing -499px
+				
+			&.help a
+				background-position: $spacing -1219px
+
+				&:hover
+					background-position: $spacing -1249px
+
+				&:active, &.selected
+					background-position: $spacing -1279px
+
+			&.logout a
+				background-position: $spacing -527px
+
+				&:hover
+					background-position: $spacing -557px
+
+				&:active, &.selected
+					background-position: $spacing -587px
+			
+			&.footer
+				padding: $spacing 0 0 $spacing
+				font-size: 12px
+				color: $gray-text
+				line-height: 20px
+				
+				a
+					width: auto
+					height: auto
+					padding: 0
+					display: inline
+					background: none
+					font-weight: normal
+					text-decoration: underline
+					line-height: 20px
+					color: $gray-text
+					
+					&:hover
+						text-decoration: none

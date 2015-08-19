@@ -1,0 +1,25 @@
+= semantic_form_for @user_session, url: login_path, html: { class: 'scroller' } do |f|
+	- if params[:stale]
+		%p You have been logged out due to 10 minutes of inactivity.
+	= f.semantic_errors
+	= f.inputs do
+		= f.input :email, input_html: { autocomplete: 'off', tabindex: 1 }
+		%li.radio
+			= f.radio_button 'login_as_guest', false
+			= f.label 'login_as_guest_false', 'Login with password'
+		= f.input :password, input_html: { autocomplete: 'off', tabindex: 2 }
+		%li.radio
+			= f.radio_button 'login_as_guest', true
+			= f.label 'login_as_guest_true', 'Login as guest'
+		%li.guest_hint
+			To view a demonstration, enter your email address and select
+			"Login as guest".
+	= f.actions do
+		= f.action :submit, label: 'Login'
+	= image_tag asset_path('login_screen.jpg')
+	
+	-# cache 'Login Page Text' do
+		%p= convert_newlines_to_breaks(auto_link(Setting.value_of('Login Page Text')))
+	
+		.exit_button
+			= link_to 'Exit', 'http://shoobphoto.com/school_support/', class: 'exit_button'

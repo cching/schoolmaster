@@ -1,0 +1,38 @@
+.title
+	%h2 Template Help
+	%h1 Creating A Template
+	
+.scroller
+	
+	%h3 Template File
+	%p
+		All template files must be in PDF format.
+	
+	%h3 Adding Schools
+	%p
+		For users of a certain school to be able to print a template, that school
+		must be assigned to that template, which can be done when creating or
+		editing a template.
+	
+	%h3 Adding Fields
+	%p
+		After a template is created, fields can be added by going to the template
+		and clicking on 'Fields'. Fields represent the dynamic part of a template.
+		Fields' content are taken from the students being printed and their
+		schools.
+
+	%p
+		All fields must be assigned a column, which assigns what data will be in
+		that field, an x and y coordinate for position, width and height, font,
+		text size, align, and a template to belong to.
+		
+	%p
+		Note: x and y coordinates are measured from the bottom left corner of the
+		pdf document.
+	
+	%h3 Fonts
+	%p
+		For a font to be available to a field, it must first be uploaded. To do
+		this, go to 'Fonts' > 'New', give it an appropriate name, and select the
+		file to upload. All fonts must be in the TrueType format. Font converters
+		can be found online (#{link_to 'http://www.fontconverter.org/', 'http://www.fontconverter.org/'}).

@@ -1,0 +1,84 @@
+.scroller
+	.infiniscroll_loading
+		width: 100%
+		height: 40px
+		background: url(image-path("loading.gif")) no-repeat center center
+
+div.table
+	width: 100%
+	display: table
+	position: relative
+	
+	div, a
+		height: 35px
+		display: table-row
+	
+	div
+		span
+			font-weight: bold
+	
+		span.sortable
+			background: #FFF url(image-path("icons.png")) no-repeat -6px -798px
+			cursor: pointer
+			
+			&:hover
+				background-position: -6px -828px
+				
+			&:active
+				background-position: -6px -858px
+			
+			&.sorted
+				background-position: -6px -888px
+				color: $blue
+				
+				&.reverse:active, &:active
+					background-position: -6px -858px
+				
+				&.reverse
+					background-position: -6px -918px
+			
+			&.spacer, &.select
+				width: $spacing
+				background: none
+				padding: 0
+				cursor: default
+	
+	a
+		color: #000
+		text-decoration: none
+		
+		span
+			background-color: #FFF
+		
+		&:nth-child(even)
+			span
+				background-color: $gray-stripe
+		
+		&:link.selected, &:link:hover.selected, &:link:active.selected,
+		&:visited.selected, &:visited:hover.selected, &:visited:active.selected
+			span
+				background-color: $blue
+				color: #FFF
+		
+		&:link:hover, &:visited:hover
+			span
+				background-color: $gray-hover
+				color: #000
+		
+		&:link:active, &:visited:active
+			span
+				background-color: $gray-active
+				color: #FFF
+	
+	span
+		display: table-cell
+		padding: 0 10px
+		line-height: 34px
+		
+		&.select
+			padding: 0
+		
+		input
+			margin: 0
+			padding: 0
+			cursor: default

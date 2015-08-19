@@ -1,0 +1,28 @@
+.title
+	%h2 Import Help
+	%h1 Associating Records
+	
+.scroller
+	
+	%h3 With Header Names
+	%p
+		To associate records with other records, you only need to include another
+		column with the other record's name. If you want to associate a school
+		with a student, include a column titled 'School' in the import file with
+		the identifier of the school you want to associate each student with. The
+		school must already be present in the system to be associated, if it does
+		not exist, you will get an error.
+	
+	%p
+		The identifiers are unique keys assigned to districts, schools, and
+		students. To associate users with a student, use the name of the user. The
+		name of the user can be in a first name last name format or last name,
+		first name.
+	
+	%h3 Implicit Association
+	%p
+		If you are importing records without an explicit name or identifier for
+		associated records, the association will be guessed depending on where you
+		are in the site. Example, if you navigate to 'Schools' > 'Example School'
+		and import students on that page, the school will be guessed as 'Example
+		School'.

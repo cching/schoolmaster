@@ -1,0 +1,46 @@
+<%= semantic_form_for resource, url: test_scores_form_path do |f| %>
+	<%= f.semantic_errors %>
+	<% if params[:student_id] %>
+	  <%= f.hidden_field :student_id, value: params[:student_id] %>
+	<% end %>
+	<%= f.inputs 'Columns', class: 'fields' do %>
+		<% if resource.data.is_a?(Hash) %>
+			<% resource.data.each do |key, value| %>
+				<li class="key_value_pair">
+					<div class="key">
+						<label>Key<abbr class="required">*</abbr></label>
+						<%= text_field_tag nil, key %>
+					</div>
+					<div class="value">
+						<label>Value</label>
+						<%= text_field_tag "test_score[data][#{key}]", value %>
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+		<li class="key_value_pair">
+			<div class="key">
+				<label>Key<abbr class="required">*</abbr></label>
+				<%= text_field_tag nil %>
+			</div>
+			<div class="value">
+				<label>Value</label>
+				<%= text_field_tag nil %>
+			</div>
+		</li>
+		<li class="actions">
+			<input type="submit" value="Add Column" class="add_column" />
+		</li>
+	<% end %>
+	<%= f.inputs class: 'relations' do %>
+		<% fields(:form, :fields).each do |field| %>
+			<%= f.input *field %>
+		<% end %>
+		<% fields(:form, :relations).each do |field| %>
+			<%= f.input *field %>
+		<% end %>
+	<% end %>
+	<%= f.actions do %>
+		<%= f.action :submit %>
+	<% end %>
+<% end %>

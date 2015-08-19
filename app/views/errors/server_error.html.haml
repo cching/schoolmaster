@@ -1,0 +1,11 @@
+.error
+	.title
+		= link_for :back, Error
+		%h2= @exception.class.to_s.titleize
+		%h1= @exception.message
+	
+	.scroller
+		%p.backtrace
+			- @exception.backtrace.each do |line|
+				= line
+				%br/

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  model: MyString
+  defaults: MyText
+  prompt_values: MyText
+  update_ids: MyText
+
+two:
+  model: MyString
+  defaults: MyText
+  prompt_values: MyText
+  update_ids: MyText

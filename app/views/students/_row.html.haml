@@ -1,0 +1,8 @@
+= link_to resource_with_parents(row ||= resource), data: { id: row.id } do
+	%span.spacer
+		= image_tag(row.image(:index), width: 28, height: 35) if row.image?
+	%span.export_list_button{ class: student_select_class(row.id) }
+	%span.image= image_tag(row.image(:index), width: 28, height: 35) if row.image?
+	- fields(:index).each do |field|
+		%span= cell_content row, field
+	%span.spacer

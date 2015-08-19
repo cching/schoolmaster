@@ -1,0 +1,17 @@
+.title
+	%h2 Upload
+	%h1 Export
+	= link_for :cancel, controller_model
+	= link_for :upload, controller_model
+	= link_for :back, controller_model
+	
+.scroller
+	= semantic_form_for :upload, url: '/export_list_items/upload' do |f|
+		- if @error
+			%p= @error
+		= f.inputs class: 'fields' do
+			= f.input :file, as: :file, hint: 'must be a line delimited list of student identifiers'
+		= f.inputs class: 'relations' do
+			= f.input :school_id, collection: School.with_permissions_to(:read)
+		= f.actions do
+			= f.action :submit, label: 'Upload'

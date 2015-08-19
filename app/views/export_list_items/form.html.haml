@@ -1,0 +1,40 @@
+.title
+	%h2 Export
+	%h1= export_title
+	= link_for :cancel, controller_model
+
+.scroller
+	= semantic_form_for @export_data, export_form_options do |f|
+		- if @export_data.errors.any?
+			%p This export cannot be used:
+			%ul.errors
+				- @export_data.errors.full_messages.each do |error|
+					%li= error
+		
+		- else
+			%p= export_selected_students_count
+			
+			- if params[:export_kind] == 'request'
+				= f.inputs do
+					= f.input :certificate_title
+					= f.input :distribution_date
+					= f.input :additional_information, as: :text
+					= hidden_field_tag :commit, 'Send'
+				
+				= f.actions do
+					= f.action :submit, label: 'Send'
+			
+			- else
+				- if @export_data.student_ids.count > 1
+					= f.inputs do
+						= f.input :sort_by, collection: Student.sort_options
+				
+				- if @export_data.template && @export_data.template.prompts.any?
+					%p Please fill in the appropriate values for the following fields.
+					= f.inputs do
+						- @export_data.template.prompts.each do |field|
+							= f.semantic_fields_for :prompt_values do |a|
+								= a.input field.name
+
+				= f.actions do
+					= f.action :submit, label: 'Create'

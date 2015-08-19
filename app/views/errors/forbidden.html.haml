@@ -1,0 +1,21 @@
+.error
+	.title
+		= link_for :back, Error
+		%h2 Error
+		%h1 Forbidden
+	
+	- if current_user
+		%p
+			You are not allowed to access this page.
+	
+	- else
+		- if flash[:stale]
+			%p
+				You have been logged out due to 10 minutes of inactivity.
+
+		- else
+			%p
+				You are not logged in.
+
+		%p
+			= link_to 'Login', request.path, data: { xhr: false }

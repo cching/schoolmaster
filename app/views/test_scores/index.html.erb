@@ -1,0 +1,103 @@
+<div class="title">
+  <%= link_for :back, controller_model %>
+  <h2><%= subtitle %></h2>
+  <h1>Test Scores</h1>
+  <%= link_for :new, controller_model %>
+  <%= link_for :help, controller_model %>
+  <%= link_for :fullscreen, controller_model %>
+  <%= link_for :import, controller_model %>
+  <%= link_for :search, controller_model %>
+  <%= link_for :print, controller_model %>
+</div>
+  
+<div class="scroller">
+  <%= options_filters_for(*test_scores_option_filters) %>
+  <div class="table" data-limit="<%= offset_amount.to_i %>" data-offset="<%= params[:offset].to_i + offset_amount.to_i %>">
+    <div>
+      <span class="spacer"></span>
+      <span class="image"></span>
+      <span data-order-by="students.last_name" class="sortable">Student</span>
+      <% unless hide_teacher %>
+        <span data-order-by="users.last_name" class="sortable">Teacher</span>
+      <% end %>
+      <% score_columns.each do |test_name, terms_and_keys| %>
+        <% terms_and_keys.each do |term, keys| %>
+          <% keys.each do |key| %>
+            <span <%= data_column_attributes(test_name, term, key) %>>
+              <i>
+                <%= test_name.upcase %><br />
+                <%= Term.shorten(term) %><br />
+                <%= key.titleize %>
+              </i>
+            </span>
+          <% end %>
+        <% end %>
+      <% end %>
+      <span class="spacer"></span>
+    </div>
+    <% group_levels(collection).each do |level, students| %>
+      <% if level %>
+        <a class="<%= level %> level_breaker">
+          <span class="spacer"></span>
+          <span></span>
+          <span></span>
+          <% unless hide_teacher %><span></span><% end %>
+          <% score_columns.each do |test_name, terms_and_keys| %>
+            <% terms_and_keys.each do |term, keys| %>
+              <% keys.each do |key| %>
+                <% if matches_current_order(test_name, term, key) %>
+                  <span>
+                    <em><%= full_level_name level %></em>
+                  </span>
+                <% else %>
+                  <span></span>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <span class="spacer"></span>
+        </a>
+      <% end %>
+      <% students.each do |student| %>
+        <a href="<%= "#{request.path}/#{student.id}" %>" data-id="<%= student.id %>">
+          <span class="spacer"></span>
+          <span class="image">
+            <%= image_tag(student.image(:index)) if student.image? %>
+          </span>
+          <span class="stacked">
+            <%= student.name %> -
+            <%= pretty_grade(student.grade) %>
+          </span>
+          <% unless hide_teacher %>
+            <span class="stacked">
+              <%= student.teacher.try(:name) || none %>
+            </span>
+          <% end %>
+          <% associated_test_scores(student.test_scores) do |association| %>
+            <% score_columns.each do |test_name, terms_and_keys| %>
+              <% terms_and_keys.each do |term, keys| %>
+                <% if score = association[[test_name, term]] %>
+                  <% keys.each do |key| %>
+                    <% if level = score.data[level_column_for(key)] %>
+                      <span class="<%= level %> small">
+                        <%= score.data[key].present? ? score.data[key] : none %><br />
+                        <%= level.titleize %>
+                      </span>
+                    <% else %>
+                      <span><%= score.data[key].present? ? score.data[key].titleize : none %></span>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% keys.each do |key| %>
+                    <span><%= none %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <span class="spacer"></span>
+        </a>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+@import variables
+	
+#meta_container
+	left: 0
+	
+	#header
+		display: none
+
+	#container
+		width: 11in
+		height: auto
+		left: 0
+		right: 0
+		margin-right: 0 !important
+
+		.page
+			display: none
+
+		.page.current
+			width: 100% !important
+			height: auto
+			position: absolute
+			left: 0
+			right: 0
+			display: block
+			
+			&.fullscreen
+				position: absolute
+				top: auto
+				bottom: auto
+		
+			.wrapper
+				width: 100% !important
+				height: auto
+			
+				&.test_scores.index, &.students.test_scores
+					div.table a span
+						-webkit-print-color-adjust: exact
+			
+					.level_breaker
+						&.adv, &.prof, &.basic, &.bbasic, &.fbb, &.unknown
+							span
+								-webkit-print-color-adjust: exact
+			
+				&.students.test_scores
+					.left_col, .right_col
+						position: static
+						float: left
+				
+					.right_col
+						width: 700px
+				
+					.interventions .holder
+						display: inline
+				
+					.notes .holder
+						display: block
+				
+					.notes, .interventions
+						textarea
+							display: none
+		
+			.scroller
+				position: static
+	
+			.title
+				display: none
+	
+			.scroller
+				top: 0

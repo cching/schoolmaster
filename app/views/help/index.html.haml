@@ -1,0 +1,23 @@
+.title
+	%h2 All
+	%h1 Help
+
+.scroller
+
+	.group Basics
+	= link_to 'Creating records', '/help/creating_records'
+	= link_to 'Editing records', '/help/editing_records'
+
+	.group Export
+	= link_to 'Selecting records to export', '/help/selecting_records_to_export'
+	= link_to 'Export options', '/help/export_options'
+	
+	- permitted_to? :import, :students do
+		.group Import
+		= link_to 'Import requirements', '/help/import_requirements'
+		= link_to 'Associating records', '/help/associating_records'
+		= link_to 'Updating records', '/help/updating_records'
+	
+	- permitted_to? :index, :templates do
+		.group Templates
+		= link_to 'Creating a template', '/help/creating_a_template'

@@ -1,0 +1,10 @@
+<%- require 'csv' -%>
+<%= CSV.generate_line(%w(bus_rfid st_lname st_fname st_stu_id st_grade note)).html_safe -%>
+<%= CSV.generate do |csv|
+  @export.students.each do |student|
+    csv << %w(bus_rfid last_name first_name identifier grade).map do |column|
+      student.send(column)
+    end + ['']
+  end
+end.html_safe
+%>

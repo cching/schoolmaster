@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student_ids: MyText
+  kind: MyString
+  type_id: 1
+  prompt_values: MyText
+  sort_by: MyString
+  certificate_title: MyString
+  distribution_date: MyString
+  additional_information: MyText
+  user_id: 1
+
+two:
+  student_ids: MyText
+  kind: MyString
+  type_id: 1
+  prompt_values: MyText
+  sort_by: MyString
+  certificate_title: MyString
+  distribution_date: MyString
+  additional_information: MyText
+  user_id: 1

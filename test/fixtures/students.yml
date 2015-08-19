@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  grade: MyString
+  am_bus_stop: MyString
+  pm_bus_stop: MyString
+  bus_pass_number: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  grade: MyString
+  am_bus_stop: MyString
+  pm_bus_stop: MyString
+  bus_pass_number: MyString

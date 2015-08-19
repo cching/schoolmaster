@@ -1,0 +1,28 @@
+<div class="title">
+  <h2>Student</h2>
+  <h1><%= @student.name %></h1>
+  <%= link_for :new, TestScore %>
+  <%= link_for :fullscreen, @student %>
+  <%= link_for :print, @student %>
+  <%= link_for :next, controller_model %>
+  <%= link_for :previous, controller_model %>
+  <%= link_for :back, controller_model %>
+</div>
+
+<div class="scroller">
+  <div class="left_col">
+    <div class="fields">
+      <%= image_tag(@student.image) if @student.image? %>
+      <div class="student_data">
+        <% fields(:show, :fields).each do |field| %>
+          <%= field_content @student, field %>
+        <% end %>
+      </div>
+    </div>
+    <h2><%= @student.school.default_note_header %></h2>
+    <%= render 'notes' %>
+  </div>
+  <div class="right_col">
+    <%= render 'tests' %>
+    <%= render 'interventions' %>
+</div>

@@ -1,0 +1,105 @@
+#container
+	.page
+		&.fullscreen
+			div.test_scores.index
+				width: auto
+	
+		div.test_scores
+		
+			&.help
+				.scroller h2
+					margin: $spacing
+					font-size: 16px
+					font-weight: bold
+	
+			&.index, &.edit, &.update
+				width: 1000px
+	
+			.adv
+				color: $advanced
+		
+			.prof
+				color: $proficient
+		
+			.basic
+				color: $basic
+		
+			.bbasic
+				color: $below-basic
+		
+			.fbb
+				color: $far-below-basic
+		
+			div.table
+				width: auto
+				min-width: 100%
+			
+				span.stacked
+					vertical-align: middle
+					font-size: 14px
+					line-height: 16px
+			
+				span.small
+					min-width: 50px
+					position: relative
+					font-size: 14px
+					line-height: 14px
+					vertical-align: middle
+					text-align: center
+					
+					&.unknown, &.adv, &.prof, &.basic, &.bbasic, &.fbb
+						color: #FFF
+					
+					&.unknown
+						background-color: $gray-active
+					
+					&.adv
+						background-color: $advanced
+					
+					&.prof
+						background-color: $proficient
+					
+					&.basic
+						background-color: $basic
+					
+					&.bbasic
+						background-color: $below-basic
+					
+					&.fbb
+						background-color: $far-below-basic
+			
+				div span.small i
+					top: 0
+			
+				a:active, a.selected
+					.adv, .prof, .basic, .bbasic, .fbb
+						color: #FFF
+		
+				a.level_breaker
+					span
+						color: #FFF !important
+						font-weight: bold
+						text-align: center
+						
+						em
+							width: 140px
+							position: absolute
+							margin-left: -70px
+				
+					&.unknown span
+						background-color: $gray-active
+				
+					&.adv span
+						background-color: $advanced
+				
+					&.prof span
+						background-color: $proficient
+				
+					&.basic span
+						background-color: $basic
+				
+					&.bbasic span
+						background-color: $below-basic
+				
+					&.fbb span
+						background-color: $far-below-basic

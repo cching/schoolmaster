@@ -1,0 +1,15 @@
+.title
+	%h2 Export
+	%h1 Select Type
+	= link_for :cancel, controller_model
+
+.scroller
+	%h6 Request
+	= link_to 'Send a Request', "#{request.path}/request"
+	- if available_types.any?
+		%h6 Templates
+		- available_types.each do |type|
+			= link_to type.name, "#{request.path}/print/#{type.id}"
+	- if permitted_to?(:zpass, controller_model)
+		%h6 Zpass
+		= link_to 'Zpass', "#{request.path}/zpass"

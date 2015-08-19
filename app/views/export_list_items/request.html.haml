@@ -1,0 +1,19 @@
+.title
+	%h2 Export
+	%h1= export_title
+	= link_for :cancel, controller_model
+
+.scroller
+	%p
+		Your request has been sent. To view and print your request,
+		you can click on the button below.
+	
+	= semantic_form_for @export_data, as: :view_request, url: '/export_list_items/export/view_request', html: { target: '_blank' } do |f|
+		= f.inputs do
+			= f.input :certificate_title, as: :hidden
+			= f.input :distribution_date, as: :hidden
+			= f.input :additional_information, as: :hidden
+			- @export_data.student_ids.each do |id|
+				= hidden_field_tag 'view_request[student_ids][]', id
+		= f.actions do
+			= f.action :submit, label: 'View Request'

@@ -1,0 +1,36 @@
+<div class="title">
+  <h2>Your</h2>
+  <h1>Export List</h1>
+  <%= link_to 'Export', '/export_list_items/export', class: 'export_list' %>
+  <%= link_for :upload, controller_model %>
+  <%= link_to 'Clear', js_link, class: 'clear_export_list' %>
+  <%= link_for :print, controller_model %>
+  <%= link_for :back, controller_model %>
+</div>
+  
+<div class="scroller">
+  <div class="table" data-limit="<%= offset_amount.to_i %>" data-offset="<%= params[:offset].to_i + offset_amount.to_i %>">
+    <div>
+      <span class="spacer"></span>
+      <span></span>
+      <span class="image"></span>
+      <% fields(:index).each do |field| %>
+        <span<%= order_by_for(field) %>><%= header_content(field) %></span>
+      <% end %>
+      <span class="spacer"></span>
+    </div>
+    <% collection.each do |row| %>
+      <a data-id="<%= row.id %>">
+        <span class="spacer"></span>
+        <span title="Add to export list" class="export_list_button <%= student_select_class(row.id) %>"></span>
+        <span class="image">
+          <%= image_tag(row.image(:index), width: 28, height: 35) if row.image? %>
+        </span>
+        <% fields(:index).each do |field| %>
+          <span><%= cell_content(row, field) %></span>
+        <% end %>
+        <span class="spacer"></span>
+      </a>
+    <% end %>
+  </div>
+</div>

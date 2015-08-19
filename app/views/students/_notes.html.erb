@@ -1,0 +1,12 @@
+<div class="notes">
+  <% 1.upto(4) do |n| %>
+    <%= semantic_form_for @student, class: 'special_handler note' do |f| %>
+      <%= f.inputs do %>
+        <%= f.input :"note_#{n}", as: :text, input_html: { value: @student.note_value_for(:"note_#{n}") } %>
+        <span class="holder">
+          <%= convert_newlines_to_breaks(@student.send(:"note_#{n}")) %>
+        </span>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

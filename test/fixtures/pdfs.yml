@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  file_file_name: MyString
+  file_file_size: 1
+  file_content_type: MyString
+  file_updated_at: 2012-07-19 13:55:24
+  template_id: 1
+
+two:
+  name: MyString
+  file_file_name: MyString
+  file_file_size: 1
+  file_content_type: MyString
+  file_updated_at: 2012-07-19 13:55:24
+  template_id: 1

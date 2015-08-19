@@ -1,0 +1,58 @@
+.title
+	%h2 Import
+	%h1= plural_title
+	= link_for :cancel, controller_model
+	= link_for :upload, controller_model
+	= link_for :back, controller_model
+	
+.scroller
+	- if @import_success
+		%p The import has started successfully, look for current status below.
+	
+	= semantic_form_for @import_data, url: parent_path(controller_model, action: :import) do |f|
+		= f.semantic_errors
+		= f.inputs class: 'fields' do
+			= f.input :file, as: :file
+		= f.inputs class: 'relations' do
+			= f.semantic_fields_for :prompt_values do |a|
+				- @import_data.prompts.each do |field|
+					= a.input *import_prompt_options(field)
+		= f.actions do
+			= f.action :submit, label: 'Upload'
+	
+	#import_status
+		%p
+			%b Pending Imports
+	
+		%p
+			- if @pending_jobs.any?
+				%table#pending_table
+					%tr
+						%th Type
+						%th Filename
+						%th Elapsed Time
+						- @pending_jobs.each do |job|
+							%tr
+								%td= job.model.to_s || none
+								%td= job.file_file_name || none
+								%td= (Time.now.utc - job.created_at.to_i).strftime('%T')
+				
+			- else
+				All imports have completed.
+	
+		%p
+			%b Failed Imports
+		%p
+			- if @failed_jobs.any?
+				%table
+					%tr
+						%th Type
+						%th Filename
+						%th Error
+					- @failed_jobs.each do |job|
+						%tr
+							%td= job.model.to_s || none
+							%td= job.file_file_name || none
+							%td= @failure_data[job.id] || none
+			- else
+				All imports have succeeded.

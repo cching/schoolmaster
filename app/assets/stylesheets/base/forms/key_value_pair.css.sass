@@ -1,0 +1,24 @@
+form
+	li.key_value_pair
+		height: 70px
+		text-align: right
+	
+		div
+			width: 100%
+			
+			label
+				display: inline
+				margin-right: 5px
+				padding: 0
+				line-height: 32px
+		
+			input
+				width: 85%
+				display: inline-block
+			
+			&.key input
+				+border-bottom-radius(0)
+			
+			&.value input
+				border-top: 0
+				+border-top-radius(0)

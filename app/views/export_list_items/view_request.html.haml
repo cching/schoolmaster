@@ -1,0 +1,12 @@
+%p
+	%b Summary of Request:
+%ul
+	%li Certificate Title: #{@request[:certificate_title]}
+	%li Distribution Date: #{@request[:distribution_date]}
+	%li Additional Information: #{@request[:additional_information]}
+
+%p
+	%b Selected Students:
+%ul
+	- Student.find(@request[:student_ids]).each do |student|
+		%li= "#{student.name} #{student.identifier}"

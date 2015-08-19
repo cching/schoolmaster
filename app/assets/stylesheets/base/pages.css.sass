@@ -1,0 +1,214 @@
+.page
+	width: 200px
+	height: 100%
+	position: relative
+	float: right
+	background: #FFF
+	+box-shadow(rgba(0, 0, 0, .5) 0 0 15px)
+	overflow: hidden
+	z-index: 1
+	
+	&.fullscreen
+		width: auto
+		min-height: 300px
+		height: auto
+		position: fixed
+		top: 0
+		bottom: 0
+		z-index: 20
+	
+	.export_list_items .title
+		h1, h2
+			right: 90px
+	
+	.index .title
+		h1, h2
+			right: 350px
+	
+	.error .title
+		h1, h2
+			right: $spacing
+
+	.loading_message
+		width: 24px
+		height: 24px
+		position: absolute
+		top: 50%
+		left: 50%
+		margin: -12px 0 0 -12px
+		background: url(image-path("loading.gif")) no-repeat
+		text-indent: -9999px
+	
+	.title
+		height: 35px
+		position: relative
+		padding: $spacing
+		background: $blue
+		color: #FFF
+		z-index: 1
+		
+		h1, h2
+			position: absolute
+			left: 90px
+			right: 240px
+			font-weight: bold
+			+ellipsis
+	
+		h1
+			height: 24px
+			margin-top: 15px
+			font-size: 21px
+			line-height: 21px
+		
+		h2
+			height: 15px
+			font-size: 12px
+			color: $blue-hover
+			line-height: 10px
+	
+		a
+			height: 35px
+			display: block
+			position: relative
+			float: right
+			margin-left: $spacing
+			padding: 0 10px
+			background: $blue-medium
+			+border-radius($radius)
+			font-weight: bold
+			color: #FFF
+			line-height: 35px
+			text-decoration: none
+			z-index: 1
+			
+			&.back
+				float: left
+				margin-left: 0
+			
+			&:hover
+				background: $blue-hover
+			
+			&:active
+				background: $blue-active
+			
+			&.selected, &:hover.selected, &:active.selected
+				background: #FFF
+				color: $blue
+			
+			&.confirm
+				background: $red
+
+				&:hover
+					background: $red-hover
+					
+				&:active
+					background: $blue-active
+		
+		.search_container
+			position: relative
+			float: right
+		
+			input.search
+				height: 35px
+				float: right
+				margin-left: $spacing
+				padding: 0 35px 0 10px
+				border: 0
+				+border-radius($radius)
+				line-height: 35px
+				font-size: 14px
+				outline: none
+		
+			i.clear
+				width: 20px
+				height: 20px
+				position: absolute
+				top: 7px
+				right: 7px
+				background: url(image-path("icons.png")) no-repeat 4px -625px
+				cursor: pointer
+			
+				&:hover
+					background-position: 4px -655px
+	
+	div.wrapper
+		height: 100%
+		position: relative
+	
+	div.index, div.new, div.edit, div.show, div.create, div.update
+		width: 800px
+	
+	div.export_list_items.select, div.export_list_items.form
+		width: 350px
+	
+	.fields, .relations
+		width: 50%
+	
+	.fields
+		float: left
+	
+		p
+			margin-right: $spacing/2
+		
+			b
+				display: block
+				margin-bottom: 5px
+				line-height: 14px
+			
+			a
+				+force-wrap
+	
+	.relations
+		float: right
+	
+		a
+			display: block
+			margin: $spacing $spacing 0 $spacing/2
+			padding: 0 10px
+			background: $gray-stripe
+			+border-radius(3px)
+			line-height: 35px
+			text-decoration: none
+			
+			span
+				float: right
+				
+				span
+					height: 15px
+					margin-top: 10px
+					padding: 0 5px
+					background: $gray-active
+					+border-radius($radius)
+					line-height: 15px
+					text-align: center
+					font-size: 12px
+					font-weight: bold
+					color: #FFF
+			
+			b, span
+				color: #000
+			
+			&:link:hover, &:visited:hover
+				background: $gray-hover
+				
+				span span
+					background: $gray-text
+			
+			&:link:active, &:visited:active
+				background: $gray-active
+			
+			&:link.selected, &:visited.selected
+				background: $blue
+			
+			&:link.selected, &:link:active, &:visited.selected, &:visited:active
+				b, span
+					color: #FFF
+					
+					span
+						background: #FFF
+			
+			&:link:active span span, &:visited:active span span
+				color: $gray-active
+			
+			&:link.selected span span, &:visited.selected span span
+				color: $blue

@@ -1,0 +1,21 @@
+.title
+	%h2= singular_title
+	%h1= resource.name
+	= link_for :edit, resource
+	= link_for :destroy, resource
+	= link_for :export, resource
+	= link_for :back, resource
+
+.scroller
+	- if resource.errors.any?
+		%ul.errors
+			- resource.errors.messages[:base].each do |message|
+				%li= message
+	
+	.fields
+		- fields(:show, :fields).each do |field|
+			= field_content resource, field
+			
+	.relations
+		- fields(:show, :relations).each do |field|
+			= relation_content resource, field

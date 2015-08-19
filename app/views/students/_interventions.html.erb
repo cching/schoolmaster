@@ -1,0 +1,39 @@
+<div class="interventions">
+  <h2>Interventions</h2>
+  <%= form_for @student, class: 'special_handler' do |f| %>
+    <div class="table">
+      <div>
+        <span>Name</span>
+        <span class="start">Start</span>
+        <span class="stop">Stop</span>
+        <span>Notes</span>
+        <span>Done</span>
+      </div>
+      <% sort_interventions(@student.interventions).each do |intervention| %>
+        <%= f.fields_for :interventions, intervention do |i| %>
+          <a class="intervention">
+            <span>
+              <%= i.text_area :name %>
+              <em class="holder"><%= convert_newlines_to_breaks(intervention.name) %></em>
+            </span>
+            <span>
+              <%= i.text_area :start %>
+              <em class="holder"><%= convert_newlines_to_breaks(intervention.start) %></em>
+            </span>
+            <span>
+              <%= i.text_area :stop %>
+              <em class="holder"><%= convert_newlines_to_breaks(intervention.stop) %></em>
+            </span>
+            <span>
+              <%= i.text_area :notes %>
+              <em class="holder"><%= convert_newlines_to_breaks(intervention.notes) %></em>
+            </span>
+            <span class="completed">
+              <%= i.check_box :completed %>
+            </span>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
