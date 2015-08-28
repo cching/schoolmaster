@@ -12,7 +12,7 @@ class Student < ActiveRecord::Base
   
   searches :first_name, :last_name, :identifier
 
-  attr_accessible :first_name, :grade, :last_name, :image, :hispanic, :english_learner, :notes,
+  attr_accessible :first_name, :grade, :last_name, :image, :hispanic, :english_learner, :data1, :data2, :notes,
     :email, :parent_name, :phone, :socioeconomically_disadvantaged,
     as: [:developer, :superintendent, :principal, :secretary, :teacher]
   attr_accessible :note_1, :note_2, :note_3, :note_4, :interventions_attributes, as:

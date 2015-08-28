@@ -10,9 +10,9 @@ module StudentsHelper
   FIELDS[:students] = {
     index: [:identifier, :name, :grade, :teacher],
     show: { fields: [:identifier, :grade, :hispanic, :english_learner, :socioeconomically_disadvantaged,
-      :phone, :email, :parent_name, :teacher],
+      :phone, :email, :parent_name, :teacher, :data1, :data2],
       relations: [:periods, :users, :school, :district]},
-    form: { fields: [:identifier, :first_name, :last_name, :grade, :email, :phone, :parent_name,
+    form: { fields: [:identifier, :first_name, :last_name, :grade, :email, :phone, :parent_name, :data1, :data2,
       [:hispanic, as: :radio], [:english_learner, as: :radio], [:socioeconomically_disadvantaged, as: :radio],
       [:dropped, as: :radio], :image], relations: [[:school, as: :search_select],
       [:bus_stop, as: :search_select, depends_on: :district], [:bus_route,
