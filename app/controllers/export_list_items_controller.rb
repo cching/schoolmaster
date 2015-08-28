@@ -24,10 +24,7 @@ class ExportListItemsController < ApplicationController
     end
   end
 
-  def inline
-    params[:export_data_id] = params[:export_data_id].to_i
-    @export_data = ExportData.find(params[:export_data_id])
-  end
+
   
   def waiting
     @pending = false
@@ -35,10 +32,15 @@ class ExportListItemsController < ApplicationController
 
     @export_data = ExportData.find(params[:export_data_id])
     @file = Rails.root.join('tmp', "#{@export_data.id}.#{@export_data.format}")
-    @file_path = Rails.root.join('tmp', "1_#{@export_data.id}.#{@export_data.format}")
-    File.open(@file_path, "wb") do |f|
+    File.open(@file, "wb") do |f|
       f.write(@file.read)
     end
+
+    send_file(
+    "#{Rails.root}/tmp/#{@export_data.id}.#{@export_data.format}",
+    filename: "#{@export_data.id}.#{@export_data.format}",
+    type: "application/pdf"
+  )
   end
 
   def upload
